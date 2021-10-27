@@ -1,0 +1,50 @@
+
+<mat-sidenav-container class="example-container" fullscreen>
+    <mat-sidenav #sidenav mode='push' >
+        <mat-toolbar color='primary'>
+            <span>Menu</span>
+            <button mat-icon-button
+                (click)='sidenav.toggle()'>
+                <mat-icon>menu</mat-icon>
+            </button>
+        </mat-toolbar>
+        <mat-nav-list>
+            <a routerLink='/main/cuenta'
+            routerLinkActive='active-link'
+            class="mt-3"
+            mat-list-item
+            (click)='sidenav.toggle()'>
+            <mat-icon mat-list-icon>account_box</mat-icon>
+            <span>Mi cuenta</span></a>
+
+            <a routerLink='/main/home'
+            routerLinkActive='active-link'
+            class="mt-2"
+            mat-list-item
+            (click)='sidenav.toggle()'>
+            <mat-icon mat-list-icon>gamepad</mat-icon>
+            <span>Juegos</span></a>
+
+            <a routerLink='/main/franquicias'
+            routerLinkActive='active-link'
+            class="mt-2"
+            mat-list-item
+            (click)='sidenav.toggle()'>
+            <mat-icon mat-list-icon>filter_9_plus</mat-icon>
+            <span>Franquicias</span></a>
+        </mat-nav-list>
+    </mat-sidenav>
+    
+    
+    <mat-toolbar color='primary'>
+        <button mat-icon-button
+            (click)='sidenav.toggle()'>
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span class="final"></span>
+        <span> Bienvenido {{usuario.nombre | titlecase}} {{usuario.apellido | titlecase}}</span>
+    </mat-toolbar>
+    <div class="m-4">
+        <router-outlet></router-outlet>
+    </div>
+</mat-sidenav-container>

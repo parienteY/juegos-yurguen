@@ -1,0 +1,16 @@
+mat-card{
+    border: 4px solid black;
+    box-shadow: 10px 10px 17px black;
+    cursor: pointer;
+}
+mat-card-footer{
+    padding: 10px;
+}
+mat-card:hover{
+    opacity: 70%
+}
+
+.text-center{
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

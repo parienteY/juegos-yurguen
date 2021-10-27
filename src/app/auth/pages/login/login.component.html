@@ -1,0 +1,29 @@
+<mat-card-title class="text-center mt-3">
+    INICIAR SESION
+</mat-card-title>
+<mat-card-content>
+    <form [formGroup]='miFormulario' class="example-form" (ngSubmit)='login()'>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input type="email" formControlName='email' matInput placeholder="Ex. pat@example.com">
+          <mat-error >
+            El correo no es valido
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width mt-2" appearance="fill">
+            <mat-label>Password</mat-label>
+            <input type="password" formControlName='password' matInput placeholder="Ingrese su contrasena">
+            <mat-error >
+              La contrasena debe contener mas de 6 caracteres
+            </mat-error>
+          </mat-form-field>
+          <div class="boton mt-2">
+              <button mat-raised-button color="primary" [disabled]='miFormulario.invalid'
+              >Inciar sesion</button>     
+          </div>
+          <div class="text-center mt-3">
+              <span>Si no tienes una cuenta registrate <a routerLink='/auth/register'>AQUI</a></span>
+          </div>
+         </form>
+      
+</mat-card-content>

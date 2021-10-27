@@ -1,0 +1,71 @@
+
+
+<div *ngIf="!juego && imagen && imagenes; else contenido" class="centrado">
+  <mat-spinner></mat-spinner>
+</div>
+<ng-template #contenido class="contenido">
+  <img [src]="juego.thumbnail" [alt]="juego.id" class="fondo">
+  <h3>{{juego.title | titlecase}}</h3>
+  <div class="row" >
+      <div class="col-xl-7 col-md-12">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+             <div class="carousel-item active" >
+                <img [src]="imagen.image" class="d-block w-100" alt="primera">
+              </div>   
+
+              <div class="carousel-item" *ngFor="let img of imagenes" >
+                <img [src]="img.image" class="d-block w-100" [alt]="img.id">
+              </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div class="mt-3">
+          <mat-card>
+              <mat-card-title>Requerimientos del sistema</mat-card-title>
+              <mat-card-content>
+                 <mat-list role="list">
+                     <mat-list-item role="listitem"><b>Sistema Operativo:</b>&nbsp;  {{juego.minimum_system_requirements!.os}}</mat-list-item>
+                     <mat-list-item role="listitem"><b>Procesador: </b>&nbsp;  {{juego.minimum_system_requirements!.processor}}</mat-list-item>
+                     <mat-list-item role="listitem"><b>Memoria RAM: </b>&nbsp;  {{juego.minimum_system_requirements!.memory}}</mat-list-item>
+                     <mat-list-item role="listitem"><b>Tarjeta de Video: </b>&nbsp; {{juego.minimum_system_requirements!.graphics}}</mat-list-item>
+                     <mat-list-item role="listitem"><b>Tarjeta de Video: </b> &nbsp; {{juego.minimum_system_requirements!.storage}}</mat-list-item>
+                   </mat-list>
+              </mat-card-content>
+          </mat-card>
+       </div>
+            </div>
+            
+            <div class="col-xl-5 col-md-12">
+              <mat-card>
+                  <mat-card-header>
+                      <img mat-card-image [src]="juego.thumbnail" alt="juego.id" height="150px" class="me-3">
+                  </mat-card-header>
+                  <mat-card-content class="p-3">
+                      <mat-card-subtitle class="text-justify">
+                         <p> {{juego.description}}</p>
+                         <hr>
+                         <p>Genero: {{juego.genre}}</p>
+                         <p>Plataforma: {{juego.platform}}</p>
+                         <p>Fecha de publicacion: {{juego.release_date}}</p>
+                      </mat-card-subtitle>
+      
+                  </mat-card-content>
+              </mat-card>
+          </div>
+      </div>
+      
+  <div>
+  </div>
+
+
+</ng-template>
+
+    
